@@ -29,9 +29,9 @@ body{
     height: 4px;
     background-color: pink;
     position: absolute;
-    width: 100px;
+    width: 70px;
     left: 0px;
-    top: 60px;
+    top: 52px;
     padding: 0px;
 }
 .task{
