@@ -35,7 +35,7 @@ function render(){
             resultHTML += `<div class="task">
                 <div class="task-done">${taskList[i].taskContent}</div>
                 <div>
-                    <button onclick="toggleComplete"('${taskList[i].id}')">
+                    <button onclick="toggleComplete('${taskList[i].id}')">
                         <i class="fa-solid fa-rotate-left"></i>
                     </button>
                     <button onclick="deleteTask('${taskList[i].id}')">
@@ -48,7 +48,7 @@ function render(){
             resultHTML += `<div class="task">
             <div>${taskList[i].taskContent}</div>
             <div>
-                <button onclick="toggleComplete"('${taskList[i].id}')">
+                <button onclick="toggleComplete('${taskList[i].id}')">
                 <i class="fa-solid fa-check"></i>
                 </button>
                 <button onclick="deleteTask('${taskList[i].id}')">
@@ -77,7 +77,7 @@ function toggleComplete(id) {
     render();
 }
 
-function deleteTask() {
+function deleteTask(id) {
     for(let i=0; i < taskList.length; i++){
         if(taskList[i].id == id){
             taskList.splice(i,1);
