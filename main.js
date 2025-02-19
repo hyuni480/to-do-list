@@ -32,7 +32,7 @@ function render(){
 
     for(let i =0; i <taskList.length; i++){
         if(taskList[i].isComplete == true){
-            resultHTML += `<div class="task">
+            resultHTML += `<div class="task done">
                 <div class="task-done">${taskList[i].taskContent}</div>
                 <div>
                     <button onclick="toggleComplete('${taskList[i].id}')">

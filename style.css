@@ -42,6 +42,9 @@ body{
 
 .task-done{
     text-decoration: line-through;
+}
+
+.done{
     background-color: gray;
 }
 
