@@ -39,3 +39,20 @@ body{
     justify-content: space-between;
     padding: 1em;
 }
+
+.task-done{
+    text-decoration: line-through;
+    background-color: gray;
+}
+
+.fa-rotate-left{
+    color: gray;
+}
+
+.fa-check{
+    color:green;
+}
+
+.fa-trash{
+    color:red;
+}
