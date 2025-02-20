@@ -24,6 +24,7 @@ body{
 }
 .task-tabs div{
     padding: 1em;
+    cursor: pointer;
 }
 #under-line{
     height: 4px;
