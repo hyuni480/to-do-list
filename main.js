@@ -16,6 +16,10 @@ let tabs = document.querySelectorAll(".task-tabs div");
 let taskList = [];
 let mode = 'all';
 let filterList = [];
+let underLine = document.getElementById("under-line");
+
+
+
 
 
 addButton.addEventListener("click", addTask);
@@ -23,18 +27,31 @@ addButton.addEventListener("click", addTask);
 //    addButton.disabled= true;
 //}
 
+function enterKey(){
+    if(window.event.keyCode == 13){
+        addTask();
+    }
+}
 
 for(let i = 1; i<tabs.length; i++){
     tabs[i].addEventListener("click", function(event){
+        
+        horizontalIndicator(event.currentTarget);
         filter(event);
-    });
 
+    });
+}
+
+function horizontalIndicator(e) {
+    underLine.style.left = e.offsetLeft + "px";
+    underLine.style.width = e.offsetWidth + "px";
+    underLine.style.top = e.offsetTop + e.offsetHeight + 6 + "px";
 }
 
 function addTask(){
     if(taskInput.value == ""){
-        alert("할일을 입력해주세요.")
-        taskInput.focus;
+        alert("할일을 입력해주세요.");
+        return;
     }
 
     let task = {
@@ -113,12 +130,24 @@ function toggleComplete(id) {
 }
 
 function deleteTask(id) {
-    for(let i=0; i < taskList.length; i++){
+
+
+    for(let i=0; i <taskList.length; i++){
         if(taskList[i].id == id){
             taskList.splice(i,1);
             break;
         }
     }
+    if(filterList != []){
+        for(let i=0; i <filterList.length; i++){
+            if(filterList[i].id == id){
+                filterList.splice(i,1);
+                break;
+            }
+        }
+    } 
+    
+   
     render();
 }
 
@@ -126,21 +155,23 @@ function filter(event){
 
     mode = event.target.id;
     
-    if(mode === "all"){
+    if(mode == "all"){
         // 전체 리스트를 보여준다.
         render();
-    } else if(mode === "ongoing"){
+    } else if(mode == "ongoing"){
         // 진행중인 아이템을 보여준다.
         // task.isComplete = false
+        filterList =[];
         for(let i =0; i < taskList.length; i++){
             if(taskList[i].isComplete === false){
                 filterList.push(taskList[i]);
             }
         }
         render();
-    } else if(mode === "done"){
+    } else if(mode == "done"){
         // 끝나는 케이스
         // task.isComplete = true
+        filterList =[];
         for(let i =0; i < taskList.length; i++){
             if(taskList[i].isComplete === true){
                 filterList.push(taskList[i]);
