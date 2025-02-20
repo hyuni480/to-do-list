@@ -19,7 +19,9 @@ let filterList = [];
 
 
 addButton.addEventListener("click", addTask);
-
+//if(taskInput.value == ""){
+//    addButton.disabled= true;
+//}
 
 
 for(let i = 1; i<tabs.length; i++){
@@ -30,16 +32,21 @@ for(let i = 1; i<tabs.length; i++){
 }
 
 function addTask(){
+    if(taskInput.value == ""){
+        alert("할일을 입력해주세요.")
+        taskInput.focus;
+    }
+
     let task = {
         id : randomIDGenerate(),
         taskContent : taskInput.value,
         isComplete : false,
     };
     taskList.push(task);
-    taskInput.value="";
+    
     console.log(taskList);
     render();
-
+    taskInput.value="";
 }
 
 function render(){
