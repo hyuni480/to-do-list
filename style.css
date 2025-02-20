@@ -155,19 +155,3 @@ button:hover {
 .fa-trash {
     color: red;
 }
-
-/* 반응형 스타일 */
-@media screen and (max-width: 768px) {
-    .container {
-        width: 90%;
-    }
-
-    .task-tabs {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    #under-line {
-        top: 46px;
-    }
-}
